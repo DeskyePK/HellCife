@@ -349,14 +349,19 @@
   function verificarStatusServidor() {
     var url = "https://api.mcsrvstat.us/2/HellCife.aternos.me:20278"; // Substitua <endereço_ip_servidor> pelo IP do servidor Minecraft
       $.getJSON(url, function(data) {
-        if (data.online) {
-          var playersOnline = data.players.online;
-          var serverStatus = "Online";
+        if (data.online) {z
+          var playersOnline = data.players.online;         
+
+
+                          if (data.platers.online != 0) {
+                             var serverStatus = "ONLINE";
+                          
           $("#players-online").text("Jogadores online: " + playersOnline);
           $("#server-status").text("Status do servidor: " + serverStatus);
           $("#start-server-button").hide();
           $("#login-form").hide();
         } else {
+          var serverStatus = "OFLINE";
           $("#players-online").text("");
           $("#server-status").text("O servidor está offline!");
           $("#start-server-button").show();
